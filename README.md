@@ -22,7 +22,7 @@
     dvc push
    ```
 7. Revert back (**give .dvc file**)
-   ```
+   ```console
    git checkout HEAD^1 data/data.tsv.dvc
    dvc checkout
    ```
@@ -30,6 +30,22 @@
    - `dvc list https://github.com/harish678/DVC data`
 9. Get latest upates of a file
    - `dvc update data/data.tsv.dvc`
+
+## DVC Pipeline
+
+2 ways using `dvc run` or `dvc.yml` file.
+
+```console
+dvc run -n prepare \
+          -p prepare.seed,prepare.split \
+          -d src/prepare.py -d data/data.xml \
+          -o data/prepared \
+          python src/prepare.py data/data.xml
+```
+
+`dvc repro` to run the pipeline using **dvc.yml** file
+
+`dvc dag` to visualize the pipeline
 
 <u>Note:</u>
 
