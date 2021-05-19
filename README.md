@@ -47,6 +47,12 @@ dvc run -n prepare \
 
 `dvc dag` to visualize the pipeline
 
+## DVC Experiments
+
+`dvc params diff` will show the difference in params over time.
+`dvc metrics diff` will show the difference in metrics over time.
+`dvc plots diff` will save the HTML file with plots   
+
 <u>Note:</u>
 
 1. DVC tracks every file using cache file in `.dvc/cache` directory.
